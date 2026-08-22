@@ -1,0 +1,213 @@
+/* ============================================================
+   Modalizer CSS — by Atomtech v1.3.1
+   Bundled stylesheet: only styles required by modalizer.js
+   ============================================================ */
+
+
+/* ─── Keyframe Animations ─────────────────────────────────── */
+
+@keyframes zoomInWithCircle {
+  0% {
+    transform: scale(0);
+    clip-path: circle(0%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    clip-path: circle(100%);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes zoomInWithCircle {
+  0% {
+    transform: scale(0);
+    -webkit-clip-path: circle(0%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    -webkit-clip-path: circle(100%);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOutWithCircle {
+  0% {
+    transform: scale(1);
+    clip-path: circle(100%);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.8);
+    clip-path: circle(50%);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0);
+    clip-path: circle(0%);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes zoomOutWithCircle {
+  0% {
+    transform: scale(1);
+    -webkit-clip-path: circle(100%);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.8);
+    -webkit-clip-path: circle(50%);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0);
+    -webkit-clip-path: circle(0%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+
+/* ─── Modal Container ─────────────────────────────────────── */
+
+.modal_iframe_con {
+  position: fixed;
+  top: 0;
+  z-index: 30;
+  left: 0px;
+  right: 0px;
+  min-height: 300px;
+  height: 100%;
+  animation: zoomInWithCircle 0.3s ease-out forwards;
+  -webkit-animation: zoomInWithCircle 0.3s ease-out forwards;
+}
+
+.modal_iframe_con > iframe::-webkit-scrollbar {
+  display: none;
+}
+
+.modal_iframe_con::-webkit-scrollbar {
+  display: none;
+}
+
+.modal_iframe_con.blurred {
+  backdrop-filter: blur(2px);
+}
+
+.modal_iframe_con.no_close_button > .close_modal_rev {
+  display: none;
+}
+
+
+/* ─── Modal Iframe ────────────────────────────────────────── */
+
+.modal_iframe_con .modal_iframe {
+  width: 100%;
+  min-height: inherit;
+  height: 100%;
+  border: none;
+  z-index: 1;
+  position: relative;
+}
+
+
+/* ─── Native Dialog ───────────────────────────────────────── */
+
+.native_dialoge {
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+
+/* ─── Loading Frame ───────────────────────────────────────── */
+
+.loading_frame {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--primary_color_invert);
+}
+
+
+/* ─── Close Button ────────────────────────────────────────── */
+
+.close_modal_rev {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  border-radius: 10px;
+  background: var(--secondary_background);
+}
+
+.close_modal_rev:hover {
+  cursor: pointer;
+  -webkit-filter: brightness(1.3);
+  filter: brightness(1.3);
+}
+
+.full_modal > .close_modal_rev {
+  left: 10px;
+  right: unset;
+  top: 10px;
+}
+
+
+/* ─── Animation State Classes ─────────────────────────────── */
+
+.fade_out_circle {
+  animation: zoomOutWithCircle 0.3s ease-in forwards;
+  -webkit-animation: zoomOutWithCircle 0.3s ease-in forwards;
+  transform-origin: center;
+}
+
+.fade_in_top {
+  animation: slideIn 0.3s ease-in forwards;
+  -webkit-animation: slideIn 0.3s ease-in forwards;
+  transform-origin: center;
+}
+
+
+/* ─── Minimized State ─────────────────────────────────────── */
+
+.minimized_modal {
+  display: none;
+}
