@@ -1,6 +1,6 @@
 # Modalizer JS
 
-**Version:** 1.3.1  
+**Version:** 1.4  
 **Author:** Atomtech  
 **Files:** `modalizer.js` · `modalizer.css`
 
@@ -267,6 +267,27 @@ Modalizer supports auto-opening a modal via the `?m=` query parameter. Add `?m=p
 ```
 
 Navigating to `https://yourapp.com/?m=users` will automatically open the Users modal.
+
+---
+
+## Loading Spy Implementation
+
+If you want to use the built-in loading spy feature, it is required that you put the following html DOM element somewhere on your base or parent shell page:
+
+```html
+<div class="" id="load_spy">
+	<div class=""> </div>
+</div>
+
+```
+### Activating on parent window 
+
+```js
+ALLOW_PROGRESS_SPY = true;
+```
+
+Also, you need to set this variable on the parent page as well, which is FALSE by default to prevent child views from trying to display its own loader spy element.
+You must declare it after the script lib gets loaded or it would not apply at all or even cause reference error. 
 
 ---
 
